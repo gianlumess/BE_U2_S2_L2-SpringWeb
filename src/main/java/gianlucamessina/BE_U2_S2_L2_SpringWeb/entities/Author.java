@@ -3,6 +3,7 @@ package gianlucamessina.BE_U2_S2_L2_SpringWeb.entities;
 import lombok.*;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Getter
 @Setter
