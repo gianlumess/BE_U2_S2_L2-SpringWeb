@@ -3,6 +3,7 @@ package gianlucamessina.BE_U2_S2_L2_SpringWeb.controllers;
 import gianlucamessina.BE_U2_S2_L2_SpringWeb.entities.BlogPost;
 import gianlucamessina.BE_U2_S2_L2_SpringWeb.services.BlogPostsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -28,6 +29,7 @@ public class BlogPostsController {
     //POST CHE PERMETTE DI CREARE UN BLOG POST (http://localhost:3001/blogPosts)
 
     @PostMapping
+    @ResponseStatus(HttpStatus.CREATED)
     private BlogPost createBlogPost(@RequestBody BlogPost body){
         return blogPostsService.saveBlogPost(body);
     }
@@ -42,6 +44,7 @@ public class BlogPostsController {
     //DELETE DI UN BLOG POST
 
     @DeleteMapping("/{blogPostId}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     private void findBlogPostByIdAndDelete(@PathVariable int blogPostId){
        blogPostsService.findByIdAndDelete(blogPostId);
     }
